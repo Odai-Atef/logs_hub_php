@@ -3,6 +3,7 @@
     "require": {
         "vlucas/phpdotenv": "^5.2"
     },
+    "license": "MIT",
     "authors": [
         {
             "name": "odai atef",
