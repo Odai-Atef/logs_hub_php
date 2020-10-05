@@ -1,5 +1,12 @@
 {
+    "name": "odai/logs_hub_php",
     "require": {
         "vlucas/phpdotenv": "^5.2"
-    }
+    },
+    "authors": [
+        {
+            "name": "odai atef",
+            "email": "o.3odai@gmail.com"
+        }
+    ]
 }

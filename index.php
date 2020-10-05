@@ -38,7 +38,7 @@ class logs_hub{
     }
     function notify($data){
         $payload = json_encode($data);
-        $ch = curl_init('URL');
+        $ch = curl_init($this->env['NOTIFY_API']);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLINFO_HEADER_OUT, true);
         curl_setopt($ch, CURLOPT_POST, true);
