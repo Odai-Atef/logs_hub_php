@@ -3,6 +3,7 @@
     "require": {
         "vlucas/phpdotenv": "^2.6.6"
     },
+    "minimum-stability":"V1.0.5-dev",
     "license": "MIT",
     "authors": [
         {
