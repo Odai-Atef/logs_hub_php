@@ -1,5 +1,6 @@
 {
     "name": "logs/logs_hub",
+    "minimum-stability":"dev-master",
     "require": {
         "vlucas/phpdotenv": "^2.6.6"
     },
