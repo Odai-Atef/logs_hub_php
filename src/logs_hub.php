@@ -1,7 +1,7 @@
 <?php 
 namespace logs;
-include_once("./vendor/autoload.php");
-
+include_once(__DIR__."/../../../autoload.php");
+use Dotenv;
 class logs_hub{
     public $env;
     function __construct(){
