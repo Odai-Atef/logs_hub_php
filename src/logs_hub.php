@@ -2,9 +2,6 @@
 namespace logs;
 use Illuminate\Support\Facades\App;
 class logs_hub{
-    public $env;
-    function __construct(){
-    }
     function log($msg, $application, $level,$execution_time, $environment, $user_id=null, $extra_data=null){
         $now =time();
         $data=[
@@ -18,24 +15,24 @@ class logs_hub{
             "timestamp"=> $now
         ];
 
-        error_log(json_encode($data), 3, App::environment('DIR')."$now.log");
+        error_log(json_encode($data), 3, env('DIR')."$now.log");
         return $data;
     }
     function warning($msg, $application, $execution_time, $environment, $user_id=null, $extra_data=null){
-        $this->log($msg, $application, App::environment('WARNING'),$execution_time, $environment, $user_id, $extra_data);
+        $this->log($msg, $application, env('WARNING'),$execution_time, $environment, $user_id, $extra_data);
     }
     function info($msg, $application, $execution_time, $environment, $user_id=null, $extra_data=null){
-        $this->log($msg, $application, App::environment('INFO') ,$execution_time, $environment, $user_id, $extra_data);
+        $this->log($msg, $application, env('INFO') ,$execution_time, $environment, $user_id, $extra_data);
     }
     function error($msg, $application, $execution_time, $environment, $user_id=null, $extra_data=null){
-        $this->log($msg, $application, App::environment('ERROR'),$execution_time, $environment, $user_id, $extra_data);
+        $this->log($msg, $application, env('ERROR'),$execution_time, $environment, $user_id, $extra_data);
     }
     function critical($msg, $application, $execution_time, $environment, $user_id=null, $extra_data=null){
-        $this->notify($this->log($msg, $application,  App::environment('CRITICAL') ,$execution_time, $environment, $user_id, $extra_data));
+        $this->notify($this->log($msg, $application,  env('CRITICAL') ,$execution_time, $environment, $user_id, $extra_data));
     }
     function notify($data){
         $payload = json_encode($data);
-        $ch = curl_init( App::environment('NOTIFY_API'));
+        $ch = curl_init( env('NOTIFY_API'));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLINFO_HEADER_OUT, true);
         curl_setopt($ch, CURLOPT_POST, true);
