@@ -3,7 +3,6 @@
     "require": {
         "vlucas/phpdotenv": "^2.6.6"
     },
-    "minimum-stability":"dev",
     "license": "OpenSource",
     "authors": [
         {
