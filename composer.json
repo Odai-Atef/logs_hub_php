@@ -4,7 +4,7 @@
     "require": {
         "vlucas/phpdotenv": "^2.6.6"
     },
-    "license": "OpenSource",
+    "license": "MIT",
     "authors": [
         {
             "name": "odai atef",
