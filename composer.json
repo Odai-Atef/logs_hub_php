@@ -1,9 +1,6 @@
 {
     "name": "logs/logs_hub",
     "minimum-stability":"dev",
-    "require": {
-        "vlucas/phpdotenv": "^5.2.0"
-    },
     "autoload": {
         "psr-4": {
             "logs\\": "src/"
