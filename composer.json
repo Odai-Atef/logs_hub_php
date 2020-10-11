@@ -4,6 +4,17 @@
     "require": {
         "vlucas/phpdotenv": "^2.6.6"
     },
+    "autoload": {
+        "psr-4": {
+            "logs\\logs_hub\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "logs\\logs_hub\\": "src/"
+        }
+    },
+
     "license": "MIT",
     "authors": [
         {
