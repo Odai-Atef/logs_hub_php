@@ -1,13 +1,9 @@
 <?php 
 namespace logs;
-include_once(__DIR__."/../../../autoload.php");
-use Dotenv;
+use Illuminate\Support\Facades\App;
 class logs_hub{
     public $env;
     function __construct(){
-        $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-        $dotenv->load();
-        $this->env=$_ENV;
     }
     function log($msg, $application, $level,$execution_time, $environment, $user_id=null, $extra_data=null){
         $now =time();
@@ -22,24 +18,24 @@ class logs_hub{
             "timestamp"=> $now
         ];
 
-        error_log(json_encode($data), 3, $this->env['DIR']."$now.log");
+        error_log(json_encode($data), 3, App::environment('DIR')."$now.log");
         return $data;
     }
     function warning($msg, $application, $execution_time, $environment, $user_id=null, $extra_data=null){
-        $this->log($msg, $application, $this->env['WARNING'],$execution_time, $environment, $user_id, $extra_data);
+        $this->log($msg, $application, App::environment('WARNING'),$execution_time, $environment, $user_id, $extra_data);
     }
     function info($msg, $application, $execution_time, $environment, $user_id=null, $extra_data=null){
-        $this->log($msg, $application, $this->env['INFO'],$execution_time, $environment, $user_id, $extra_data);
+        $this->log($msg, $application, App::environment('INFO') ,$execution_time, $environment, $user_id, $extra_data);
     }
     function error($msg, $application, $execution_time, $environment, $user_id=null, $extra_data=null){
-        $this->log($msg, $application, $this->env['ERROR'],$execution_time, $environment, $user_id, $extra_data);
+        $this->log($msg, $application, App::environment('ERROR'),$execution_time, $environment, $user_id, $extra_data);
     }
     function critical($msg, $application, $execution_time, $environment, $user_id=null, $extra_data=null){
-        $this->notify($this->log($msg, $application, $this->env['CRITICAL'],$execution_time, $environment, $user_id, $extra_data));
+        $this->notify($this->log($msg, $application,  App::environment('CRITICAL') ,$execution_time, $environment, $user_id, $extra_data));
     }
     function notify($data){
         $payload = json_encode($data);
-        $ch = curl_init($this->env['NOTIFY_API']);
+        $ch = curl_init( App::environment('NOTIFY_API'));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLINFO_HEADER_OUT, true);
         curl_setopt($ch, CURLOPT_POST, true);
