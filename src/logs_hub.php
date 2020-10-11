@@ -1,4 +1,5 @@
 <?php 
+namespace logs\logs_hub;
 include_once("./vendor/autoload.php");
 
 class logs_hub{
