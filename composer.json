@@ -1,5 +1,5 @@
 {
-    "name": "odai/logs_hub_php",
+    "name": "logs/logs_hub",
     "require": {
         "vlucas/phpdotenv": "^2.6.6"
     },

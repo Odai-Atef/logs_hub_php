@@ -24,7 +24,7 @@ class logs_hub{
         error_log(json_encode($data), 3, $this->env['DIR']."$now.log");
         return $data;
     }
-    function warning($msg, $application, $execution_time, $environment, $user_id=null, $extra_data=null){
+    static function warning($msg, $application, $execution_time, $environment, $user_id=null, $extra_data=null){
         $this->log($msg, $application, $this->env['WARNING'],$execution_time, $environment, $user_id, $extra_data);
     }
     function info($msg, $application, $execution_time, $environment, $user_id=null, $extra_data=null){
