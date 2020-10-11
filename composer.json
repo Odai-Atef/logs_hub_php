@@ -1,9 +1,9 @@
 {
     "name": "odai/logs_hub_php",
     "require": {
-        "vlucas/phpdotenv": "^5.2"
+        "vlucas/phpdotenv": "^2.6.6"
     },
-    "minimum-stability":"V1.0.1",
+    "minimum-stability":"V1.0.2",
     "license": "MIT",
     "authors": [
         {
