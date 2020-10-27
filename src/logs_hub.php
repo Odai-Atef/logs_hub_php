@@ -15,7 +15,7 @@ class logs_hub{
             "timestamp"=> $now
         ];
 
-        error_log(json_encode($data), 3, env('DIR')."$now.log");
+        error_log(json_encode($data)."\n", 3, env('DIR')."$now.log");
         return $data;
     }
     function warning($msg, $application, $execution_time, $environment, $user_id=null, $extra_data=null){
