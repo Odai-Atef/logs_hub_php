@@ -3,7 +3,7 @@ namespace logs;
 use Illuminate\Support\Facades\App;
 class logs_hub{
     function log($msg, $application, $level,$execution_time, $environment, $user_id=null, $extra_data=null){
-        $now =time();
+        $now = date('YmdH');
         $data=[
             "message"=> $msg,
             "level"=> $level,
