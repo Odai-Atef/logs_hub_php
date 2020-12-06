@@ -1,6 +1,6 @@
 {
     "name": "logs/logs_hub",
-    "minimum-stability":"dev",
+    "minimum-stability":"1.0.7",
     "autoload": {
         "psr-4": {
             "logs\\": "src/"
