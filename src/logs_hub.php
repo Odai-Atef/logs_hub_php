@@ -12,7 +12,7 @@ class logs_hub{
             "user_id"=> $user_id,
             "execution_time"=>$execution_time,
             "extra_data"=> $extra_data,
-            "timestamp"=> $now
+            "timestamp"=> time()
         ];
 
         error_log(json_encode($data)."\n", 3, env('DIR')."$now.log");
